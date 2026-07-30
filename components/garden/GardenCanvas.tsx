@@ -2,6 +2,7 @@
 
 import { Stage, Layer, Rect, Text, Line } from "react-konva";
 import { useState } from "react";
+import { Stage, Layer, Rect, Text, Line, Group } from "react-konva";
 
 import { Garden, Bed } from "@/types/garden";
 
@@ -147,66 +148,35 @@ export default function GardenCanvas() {
           {/* Beete */}
 
           {
-            garden.beds.map((bed:Bed)=>(
-
-
-              <>
-
-              <Rect
-
+            garden.beds.map((bed: Bed) => (
+              <Group
                 key={bed.id}
-
                 x={bed.x}
-
                 y={bed.y}
-
-                width={bed.width}
-
-                height={bed.height}
-
-                fill={bed.color}
-
-                cornerRadius={12}
-
-
                 draggable
-
-
-                onDragEnd={(e)=>{
-
+                onDragEnd={(e) => {
                   updateBedPosition(
-
                     bed.id,
-
                     e.target.x(),
-
                     e.target.y()
-
                   );
-
                 }}
+              >
+                <Rect
+                  width={bed.width}
+                  height={bed.height}
+                  fill={bed.color}
+                  cornerRadius={12}
+                />
 
-              />
-
-
-              <Text
-
-                key={`${bed.id}-text`}
-
-                text={bed.name}
-
-                x={bed.x+10}
-
-                y={bed.y+10}
-
-                fontSize={18}
-
-              />
-
-              </>
-
+                <Text
+                  text={bed.name}
+                  x={10}
+                  y={10}
+                  fontSize={18}
+                />
+              </Group>
             ))
-
           }
 
 

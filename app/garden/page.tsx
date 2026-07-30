@@ -1,4 +1,4 @@
-import GardenGrid from "@/components/garden/GardenGrid";
+import GardenCanvas from "@/components/garden/GardenCanvas";
 
 export default function GardenPage() {
   return (

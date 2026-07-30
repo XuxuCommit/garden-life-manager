@@ -1,19 +1,38 @@
 import "./globals.css";
-import type { Metadata } from "next";
+import Sidebar from "@/components/layout/Sidebar";
 
-export const metadata: Metadata = {
-  title: "Garden Life Manager",
-  description: "Garten-, Trainings- und Life-Manager"
+export const metadata = {
+    title: "Garden Life Manager",
+    description: "Dein persönlicher Life Manager"
 };
 
 export default function RootLayout({
-  children,
+    children,
 }: {
-  children: React.ReactNode;
+    children: React.ReactNode;
 }) {
-  return (
-    <html lang="de">
-      <body>{children}</body>
-    </html>
-  );
+
+    return (
+
+        <html lang="de">
+
+            <body>
+
+                <div className="flex">
+
+                    <Sidebar />
+
+                    <main className="flex-1 bg-gray-100 min-h-screen p-8">
+
+                        {children}
+
+                    </main>
+
+                </div>
+
+            </body>
+
+        </html>
+
+    );
 }
